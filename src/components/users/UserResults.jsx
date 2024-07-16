@@ -8,7 +8,7 @@ export const UserResults = () => {
 
   useEffect(() => {
     fetchUsers();
-  });
+  }, []);
 
   if (!loading) {
     return (
