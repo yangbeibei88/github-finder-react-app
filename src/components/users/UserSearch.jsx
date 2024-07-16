@@ -4,7 +4,7 @@ import { GithubContext } from "../../context/github/GithubContextX.jsx";
 export const UserSearch = () => {
   const [term, setTerm] = useState("");
 
-  const { users, searchUsers } = useContext(GithubContext);
+  const { users, searchUsers, clearUsers } = useContext(GithubContext);
 
   const handleChange = (e) => {
     console.log(e.target.value);
@@ -20,6 +20,10 @@ export const UserSearch = () => {
       searchUsers(term);
       setTerm("");
     }
+  };
+
+  const handleClear = () => {
+    clearUsers();
   };
 
   return (
@@ -48,7 +52,9 @@ export const UserSearch = () => {
       {/* ONLY SHOW CLEAR BUTTON WHEN THERE ARE USERS ON STATE */}
       {users.length > 0 && (
         <div>
-          <button className="btn btn-ghost btn-lg">Clear</button>
+          <button className="btn btn-ghost btn-lg" onClick={handleClear}>
+            Clear
+          </button>
         </div>
       )}
     </div>
