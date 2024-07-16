@@ -1,8 +1,8 @@
 export const AlertReducer = (state, action) => {
   switch (action.type) {
-    case "SET ALERT":
+    case "SET_ALERT":
       return action.payload;
-    case "REMOVE ALERT":
+    case "REMOVE_ALERT":
       return null;
     default:
       state;
