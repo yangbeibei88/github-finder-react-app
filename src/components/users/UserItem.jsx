@@ -13,7 +13,7 @@ export const UserItem = ({ name, avatar }) => {
         </div>
         <div>
           <h2 className="card-title">{name}</h2>
-          <Link to={`/users/${name}`} className="text-base-content">
+          <Link to={`/user/${name}`} className="text-base-content">
             Visit Profile
           </Link>
         </div>
