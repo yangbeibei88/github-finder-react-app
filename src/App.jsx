@@ -5,24 +5,27 @@ import { Home } from "./pages/Home.jsx";
 import { About } from "./pages/About.jsx";
 import { NotFound } from "./pages/NotFound.jsx";
 import { GithubProvider } from "./context/github/GithubContextX.jsx";
+import { AlertProvider } from "./context/alert/AlertContext.jsx";
 
 export const App = () => {
   return (
     <GithubProvider>
-      <BrowserRouter>
-        <div className="flex flex-col justify-between h-screen">
-          <Navbar title={"Github Finder"} />
-          <main className="container mx-auto px-3 pb-12">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/notfound" element={<NotFound />} />
-              <Route path="/*" element={<NotFound />} />
-            </Routes>
-          </main>
-          <Footer />
-        </div>
-      </BrowserRouter>
+      <AlertProvider>
+        <BrowserRouter>
+          <div className="flex flex-col justify-between h-screen">
+            <Navbar title={"Github Finder"} />
+            <main className="container mx-auto px-3 pb-12">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/notfound" element={<NotFound />} />
+                <Route path="/*" element={<NotFound />} />
+              </Routes>
+            </main>
+            <Footer />
+          </div>
+        </BrowserRouter>
+      </AlertProvider>
     </GithubProvider>
   );
 };
