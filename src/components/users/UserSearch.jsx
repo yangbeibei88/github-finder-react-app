@@ -4,7 +4,7 @@ import { GithubContext } from "../../context/github/GithubContextX.jsx";
 export const UserSearch = () => {
   const [term, setTerm] = useState("");
 
-  const { users } = useContext(GithubContext);
+  const { users, searchUsers } = useContext(GithubContext);
 
   const handleChange = (e) => {
     console.log(e.target.value);
@@ -17,7 +17,7 @@ export const UserSearch = () => {
     if (term === "") {
       alert("Please enter something");
     } else {
-      // @TODO - SEARCH USERS
+      searchUsers(term);
       setTerm("");
     }
   };
