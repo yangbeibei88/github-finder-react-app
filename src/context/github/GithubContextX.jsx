@@ -1,6 +1,5 @@
 import { createContext, useReducer } from "react";
 import { GithubReducer } from "./GithubReducerX.jsx";
-import { API_URL, API_TOKEN } from "../../utils.jsx";
 
 export const GithubContext = createContext();
 
@@ -33,66 +32,16 @@ export const GithubProvider = ({ children }) => {
   // };
 
   // Set loading
-  const setLoading = () => dispatch({ type: "SET_LOADING" });
+  // const setLoading = () => dispatch({ type: "SET_LOADING" });
 
   // Clear Users
-  const clearUsers = () => dispatch({ type: "CLEAR_USERS" });
-
-  // Get single user profile
-  const getUser = async (login) => {
-    setLoading();
-
-    const res = await fetch(`${API_URL}/users/${login}`, {
-      headers: {
-        Authorization: `token ${API_TOKEN}`,
-      },
-    });
-
-    if (res.status === 404) {
-      window.location = "/notfound";
-    } else {
-      const data = await res.json();
-      console.log(data);
-
-      dispatch({
-        type: "GET_USER",
-        payload: data,
-      });
-    }
-  };
-
-  // Get user Repos
-  const getUserRepos = async (login) => {
-    setLoading();
-
-    const params = new URLSearchParams({
-      sort: "created",
-      per_page: 10,
-    });
-
-    const res = await fetch(`${API_URL}/users/${login}/repos?${params}`, {
-      headers: {
-        Authorization: `token ${API_TOKEN}`,
-      },
-    });
-
-    const data = await res.json();
-    console.log(data);
-
-    dispatch({
-      type: "GET_USER_REPOS",
-      payload: data,
-    });
-  };
+  // const clearUsers = () => dispatch({ type: "CLEAR_USERS" });
 
   return (
     <GithubContext.Provider
       value={{
         ...state,
         dispatch,
-        clearUsers,
-        getUser,
-        getUserRepos,
       }}
     >
       {children}
