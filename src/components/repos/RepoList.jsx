@@ -1,3 +1,5 @@
+import { RepoItem } from "./RepoItem.jsx";
+
 export const RepoList = ({ repos }) => {
   return (
     <div className="rounded-lg shadow-lg card bg-base-300">
@@ -6,9 +8,7 @@ export const RepoList = ({ repos }) => {
           Latest Repositories
         </h2>
         {repos.map((repo) => (
-          <div className="" key={repo.id}>
-            <h3>{repo.name}</h3>
-          </div>
+          <RepoItem key={repo.id} repo={repo} />
         ))}
       </div>
     </div>
