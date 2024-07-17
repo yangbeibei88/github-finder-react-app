@@ -11,7 +11,7 @@ export const UserSearch = () => {
   const { setAlert } = useContext(AlertContext);
 
   const handleChange = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     setTerm(e.target.value);
   };
 
