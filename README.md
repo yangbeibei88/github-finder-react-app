@@ -10,7 +10,7 @@ Integrated with Github API, this application allows you to search github users.
 
 ## Live Demo
 
-Check out the live site [Github Finder React App](githubfinder.beibeiyang.dev/).
+Check out the live site [Github Finder React App](https://githubfinder.beibeiyang.dev/).
 
 
 ## Features
